@@ -1,6 +1,8 @@
 # A Demo of Sleep-Time Compute
 
-This repository contains a demonstration of the "Sleep-time Compute" technique described in the paper ["Sleep-time Compute: Beyond Inference Scaling at Test-time"](https://arxiv.org/abs/2401.12200). The implementation uses Mistral-7B-Instruct-v0.1, an open-source large language model.
+This repository demonstrates the "Sleep-time Compute" technique described in the paper ["Sleep-time Compute: Beyond Inference Scaling at Test-time"]([https://arxiv.org/abs/2401.12200](https://arxiv.org/pdf/2504.13171)) using an open-sourced LLMs. 
+
+Google Colab: https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QHli0Lpg8?usp=sharing
 
 ## Overview
 
@@ -40,33 +42,3 @@ The implementation demonstrates:
 1. **Test-time Efficiency**: Significant reduction in tokens needed at query time
 2. **Accuracy Improvements**: More reliable answers through pre-computed inferences
 3. **Cost Amortization**: Greater efficiency as the number of queries increases
-
-## Getting Started
-
-To run this demo:
-
-1. Install the required dependencies:
-```bash
-pip install transformers torch datasets matplotlib tqdm accelerate
-```
-
-2. Run the notebook to see Sleep-time Compute in action
-
-3. Experiment with different contexts and queries to observe the benefits
-
-## Requirements
-
-- Python 3.6+
-- PyTorch
-- Transformers
-- Matplotlib
-- tqdm
-- Accelerate
-
-## Acknowledgements
-
-This implementation is based on the paper "Sleep-time Compute: Beyond Inference Scaling at Test-time". The demo uses the Mistral-7B-Instruct-v0.1 model, an open-source large language model.
-
-## License
-
-This project is provided as an educational demonstration. Please refer to the Mistral-7B-Instruct-v0.1 license for usage restrictions related to the underlying model.
