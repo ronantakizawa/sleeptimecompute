@@ -37,6 +37,27 @@ Based on the research findings, Sleep-time Compute is most effective in the foll
   - Particularly valuable when test-time tokens are significantly more expensive
   - Can reduce test-time compute needed for the same accuracy by ~5×
 
+## When Not to Use Sleep-Time Compute
+
+Sleep-time Compute may not be beneficial in these scenarios:
+
+- **Unpredictable Queries**: When questions are difficult to anticipate from the context
+  - The research shows diminishing returns for less predictable queries
+  - Standard test-time compute may be more effective in these cases
+
+- **Single Query Scenarios**: With only one question per context
+  - The overhead of sleep-time compute isn't amortized
+  - Cost efficiency significantly drops without multiple related queries
+
+- **High Test-Time Budget Settings**: In applications where extensive test-time compute is already allocated
+  - Research shows standard test-time compute can sometimes outperform sleep-time compute when sufficient test-time resources are available
+
+- **Non-Stateful Applications**: Systems where context doesn't persist between interactions
+  - Without a persistent context to analyze during idle time, the core benefit is lost
+
+- **Rapidly Changing Contexts**: Environments where the context is frequently updated
+  - Pre-computed inferences may quickly become outdated
+
 ## Implementation Details
 
 This demo implements Sleep-time Compute using:
@@ -50,3 +71,16 @@ The code demonstrates:
 - Visualizing the benefits through token usage and accuracy metrics
 - Multi-query amortization to show efficiency gains
 
+## Key Features
+
+- **Two-Phase Approach**: Clear separation between sleep-time and test-time computation
+- **Variable Verbosity**: Control the level of detail in responses
+- **Performance Comparison**: Analysis of regular vs. sleep-time compute approaches
+- **Visualization**: Graphs showing efficiency gains and amortization benefits
+
+## Results
+
+The implementation demonstrates:
+1. **Test-time Efficiency**: Significant reduction in tokens needed at query time
+2. **Accuracy Improvements**: More reliable answers through pre-computed inferences
+3. **Cost Amortization**: Greater efficiency as the number of queries increases
