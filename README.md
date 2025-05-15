@@ -1,6 +1,6 @@
 # A Demo of Sleep-Time Compute
 
-This repository demonstrates the "Sleep-time Compute" technique described in the paper ["Sleep-time Compute: Beyond Inference Scaling at Test-time"]([https://arxiv.org/abs/2401.12200](https://arxiv.org/pdf/2504.13171)) using an open-sourced LLMs. 
+This repository demonstrates the "Sleep-time Compute" technique described in the paper ["Sleep-time Compute: Beyond Inference Scaling at Test-time"](https://arxiv.org/pdf/2504.13171) using open-source LLMs.
 
 Google Colab: https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QHli0Lpg8?usp=sharing
 
@@ -8,13 +8,34 @@ Google Colab: https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QH
 
 Sleep-time Compute is a technique that improves the efficiency and accuracy of language models by splitting computation into two phases:
 
-1. **Sleep-time Phase**: Pre-compute useful inferences about a context when computational demands are lower
+1. **Sleep-time Phase**: Pre-compute useful inferences about a context when the model would otherwise be idle
 2. **Test-time Phase**: Use these pre-computed inferences to answer queries more efficiently
 
 This approach offers several benefits:
 - Reduced latency during query time
 - Improved accuracy through deeper context understanding
 - Cost efficiency through amortization across multiple queries
+
+## When to Use Sleep-Time Compute
+
+Based on the research findings, Sleep-time Compute is most effective in the following scenarios:
+
+- **Stateful Applications**: Systems where context persists across multiple interactions, such as:
+  - Document question-answering
+  - Coding assistants operating on shared repositories
+  - Conversational agents maintaining dialogue history
+
+- **Predictable Queries**: Contexts where potential questions follow predictable patterns
+  - Research shows the performance gap widens with more predictable queries
+  - Less effective when queries are difficult to predict or unrelated to the context
+
+- **Multiple Related Queries**: When users ask several questions about the same context
+  - Cost efficiency improves as the number of queries increases
+  - Research demonstrates a 2.5× decrease in average cost per query with 10 queries per context
+
+- **High-Latency Constraints**: Applications where reducing test-time compute is critical
+  - Particularly valuable when test-time tokens are significantly more expensive
+  - Can reduce test-time compute needed for the same accuracy by ~5×
 
 ## Implementation Details
 
@@ -29,16 +50,3 @@ The code demonstrates:
 - Visualizing the benefits through token usage and accuracy metrics
 - Multi-query amortization to show efficiency gains
 
-## Key Features
-
-- **Two-Phase Approach**: Clear separation between sleep-time and test-time computation
-- **Variable Verbosity**: Control the level of detail in responses
-- **Performance Comparison**: Analysis of regular vs. sleep-time compute approaches
-- **Visualization**: Graphs showing efficiency gains and amortization benefits
-
-## Results
-
-The implementation demonstrates:
-1. **Test-time Efficiency**: Significant reduction in tokens needed at query time
-2. **Accuracy Improvements**: More reliable answers through pre-computed inferences
-3. **Cost Amortization**: Greater efficiency as the number of queries increases
