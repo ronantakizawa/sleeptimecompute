@@ -5,6 +5,8 @@ This repository demonstrates the "Sleep-time Compute" technique described in the
 
 Google Colab: [https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QHli0Lpg8?usp=sharing](https://colab.research.google.com/drive/12MFTFs9YMoOL-znKgYBY5heoEl9qm8AZ?usp=sharing)
 
+Explanation Article: https://medium.com/@ronantech/demo-how-to-run-sleep-time-compute-to-reduce-llm-latency-84c5626d0770
+
 ## Overview
 
 Sleep-time Compute is a technique that improves the efficiency and accuracy of language models by splitting computation into two phases:
