@@ -1,8 +1,9 @@
-# A Demo of Sleep-Time Compute
+# A Demo of Sleep-Time Compute to Reduce LLM Latency
+<img width="942" alt="Screenshot 2025-05-17 at 10 56 31 AM" src="https://github.com/user-attachments/assets/54f2d597-d15e-4c29-ad44-eb61a9375516" />
 
 This repository demonstrates the "Sleep-time Compute" technique described in the paper ["Sleep-time Compute: Beyond Inference Scaling at Test-time"](https://arxiv.org/pdf/2504.13171) using open-source LLMs.
 
-Google Colab: https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QHli0Lpg8?usp=sharing
+Google Colab: [https://colab.research.google.com/drive/12Itg_XOCP9sRezztBIIRY97QHli0Lpg8?usp=sharing](https://colab.research.google.com/drive/12MFTFs9YMoOL-znKgYBY5heoEl9qm8AZ?usp=sharing)
 
 ## Overview
 
@@ -84,3 +85,8 @@ The implementation demonstrates:
 1. **Test-time Efficiency**: Significant reduction in tokens needed at query time
 2. **Accuracy Improvements**: More reliable answers through pre-computed inferences
 3. **Cost Amortization**: Greater efficiency as the number of queries increases
+
+<img width="541" alt="Screenshot 2025-05-17 at 10 57 27 AM" src="https://github.com/user-attachments/assets/6b7e1093-8afb-4d4f-830f-7d774a0c3ee0" />
+
+
+<img width="529" alt="Screenshot 2025-05-17 at 10 57 48 AM" src="https://github.com/user-attachments/assets/c4e0255e-6537-449f-8942-570268dea723" />
